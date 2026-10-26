@@ -1,0 +1,102 @@
+### HTTP: 
+#@BirdJournal_HostAddress = http://localhost:5267
+### HTTPS: 
+#@BirdJournal_HostAddress = https://localhost:7101
+# Container: 
+@BirdJournal_HostAddress = http://localhost:8080
+
+###
+GET {{BirdJournal_HostAddress}}/openapi/v1.json
+
+###
+GET {{BirdJournal_HostAddress}}/journalEntries
+Accept: application/json
+
+###
+GET {{BirdJournal_HostAddress}}/journalEntries/entry/1
+
+###
+GET {{BirdJournal_HostAddress}}/journalEntries/date/2026-10-25
+
+
+###
+POST {{BirdJournal_HostAddress}}/journalEntries
+Content-Type: application/json
+
+{
+  "Date": "2026-10-26",
+  "Notes": "mom's day birding",
+  "Birds": [
+    {
+        "bird": "red_tailed_hawk",
+        "dayCount": 1
+    },
+    {
+        "bird": "wood_duck",
+        "dayCount": 15
+    }
+  ]
+}
+
+###
+POST {{BirdJournal_HostAddress}}/journalEntries
+Content-Type: application/json
+
+{
+  "Date": "2026-10-26",
+  "Notes": "This is my second day birding",
+  "Birds": [
+    {
+        "bird": "song_sparrow",
+        "dayCount": 15
+    },
+    {
+        "bird": "red_tailed_hawk",
+        "dayCount": 2
+    },
+    {
+        "bird": "stellars_jay",
+        "dayCount": 1
+    }
+  ]
+}
+
+###
+POST {{BirdJournal_HostAddress}}/journalEntries
+Content-Type: application/json
+
+{
+  "Date": "2026-10-25",
+  "Notes": "hello world, first day birding",
+  "Birds": [
+    {
+        "bird": "eagle",
+        "dayCount": 1
+    }
+  ]
+}
+
+###
+PUT {{BirdJournal_HostAddress}}/journalEntries/entry/1
+Content-Type: application/json
+
+{
+  "Birds": [
+    {
+        "bird": "eagle",
+        "dayCount": 1
+    }
+  ]
+}
+
+###
+PUT {{BirdJournal_HostAddress}}/journalEntries/entry/1
+Content-Type: application/json
+
+{
+  "Notes":"Hello world! First day birding"
+}
+
+
+###
+DELETE {{BirdJournal_HostAddress}}/journalEntries/entry/2
