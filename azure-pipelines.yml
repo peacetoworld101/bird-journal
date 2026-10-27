@@ -41,5 +41,4 @@ stages:
         repository: 'bird-journal'
         command: 'push'
         tags: |
-          $(Build.BuildId)
           latest
