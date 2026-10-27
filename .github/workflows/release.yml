@@ -20,4 +20,4 @@ jobs:
         push: true
         tags: 
           peacetoworld101/bird-journal:latest,
-          peacetoworld101/bird-journal:${{ vars.IMAGE_VERSION }}.$GITHUB_RUN_NUMBER
+          peacetoworld101/bird-journal:${{ vars.IMAGE_VERSION }}.${{ github.run_number }}
