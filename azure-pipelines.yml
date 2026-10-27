@@ -21,17 +21,19 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: Build an image
+      displayName: Build bird-journal image
       inputs:
         command: build
+        repository: 'bird-journal'
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           latest
+
 - stage: Release
   displayName: Release 
   jobs:
   - job: Release
-    displayName: Release image
+    displayName: Release bird-journal image
     pool:
       vmImage: ubuntu-latest
     steps:
