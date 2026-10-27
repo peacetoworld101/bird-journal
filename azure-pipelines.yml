@@ -23,6 +23,7 @@ stages:
     - task: Docker@2
       displayName: Build bird-journal image
       inputs:
+        containerRegistry: 'myDockerhub'
         command: build
         repository: 'bird-journal'
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
